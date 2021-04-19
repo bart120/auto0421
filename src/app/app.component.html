@@ -13,10 +13,23 @@
     <mat-icon>add</mat-icon>
     Ajouter
   </a>
-  <a href="#" mat-button>
-    <mat-icon>locked_in</mat-icon>
-    Connexion
-  </a>
+
+  <div *ngIf="user else login">
+    Bonjour {{user.name}}
+    <button mat-button>
+      <mat-icon>locked_out</mat-icon>Se déconnecter
+    </button>
+  </div>
+
+  <ng-template #login>
+    <a href="#" mat-button>
+      <mat-icon>locked_in</mat-icon>
+      Connexion
+    </a>
+  </ng-template>
+
+
+
 </mat-toolbar>
 
 
