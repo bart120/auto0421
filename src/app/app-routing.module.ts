@@ -11,14 +11,16 @@ const routes: Routes = [
 
     /*{ path: 'car/list', component: ListComponent },
     { path: 'car/add', component: AddComponent },*/
-    {
+    /*{
         path: 'car', children: [
             { path: 'list', component: ListComponent },
             { path: 'add', component: AddComponent }
         ]
-    },
+    },*/
+    { path: 'car', loadChildren: () => import('./car/car.module').then(x => x.CarModule) },
 
-    { path: 'auth/login', component: LoginComponent },
+    //{ path: 'auth/login', component: LoginComponent },
+    { path: 'auth', loadChildren: () => import('./authentication/authentication.module').then(x => x.AuthenticationModule) },
 
     { path: '404', component: NotFoundComponent },
 
