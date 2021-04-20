@@ -1,1 +1,18 @@
-<p>list works!</p>
+<h2>Voitures</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Modèle</th>
+            <th>Prix</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <td>{{car.model}}</td>
+            <td>{{car.price}}</td>
+            <td>{{car.dateOfCirculation}}</td>
+        </tr>
+    </tbody>
+</table>
