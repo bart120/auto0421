@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandModel } from 'src/app/models/brand.model';
 import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class FooterComponent implements OnInit {
 
-    brands: Array<any> = [];
+    brands: Array<BrandModel> = [];
     //private servBrand: BrandService;
 
     constructor(private servBrand: BrandService) {
@@ -20,6 +21,13 @@ export class FooterComponent implements OnInit {
             { name: 'BMW', image: 'bmw.jpg' },
             { name: 'Audi', image: 'audi.jpg' }
         ];*/
-        this.brands = this.servBrand.getBrands();
+        //this.brands = this.servBrand.getBrands();
+        //console.log('fin ngOnInit');
+
+        this.servBrand.getBandsOrderByNameRepeat().subscribe((data) => {
+            this.brands = data;
+        }, err => {
+            alert(err.message);
+        });
     }
 }
