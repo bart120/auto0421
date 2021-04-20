@@ -1,15 +1,15 @@
 <mat-toolbar color="primary">
   <!--<span [textContent]='title'></span>-->
   <span>{{title}}</span>
-  <a href="#" mat-button>
+  <a routerLink="/home" mat-button>
     <mat-icon>home</mat-icon>
     Accueil
   </a>
-  <a href="#" mat-button>
+  <a [routerLink]="['/car/list']" mat-button>
     <mat-icon>taxi_alert</mat-icon>
     Voitures
   </a>
-  <a href="#" mat-button>
+  <a routerLink="/car/add" mat-button>
     <mat-icon>add</mat-icon>
     Ajouter
   </a>
@@ -22,7 +22,7 @@
   </div>
 
   <ng-template #login>
-    <a href="#" mat-button>
+    <a routerLink="/auth/bob" mat-button>
       <mat-icon>locked_in</mat-icon>
       Connexion
     </a>
@@ -32,6 +32,6 @@
 
 </mat-toolbar>
 
-
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>
