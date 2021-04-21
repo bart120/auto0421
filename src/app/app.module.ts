@@ -10,8 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 //import { CarModule } from './car/car.module';
 import { MasterModule } from './master/master.module';
 import { BrandService } from './services/brand.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CarInterceptor } from './interceptors/car.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     //AuthenticationModule,
     //CarModule
   ],
-  providers: [/*BrandService*/],
+  providers: [
+    /*BrandService,*/
+    { provide: HTTP_INTERCEPTORS, multi: true, useClass: CarInterceptor }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
