@@ -5,6 +5,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { CarRoutingModule } from './car-routing.module';
 import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { MaterialModule } from '../material.module';
   imports: [
     CommonModule,
     CarRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class CarModule { }

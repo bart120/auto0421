@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MasterModule } from './master/master.module';
 import { BrandService } from './services/brand.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     SharedModule,
     MasterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule
     //AuthenticationModule,
     //CarModule
   ],

@@ -19,4 +19,12 @@ export class CarService {
         //return this.http.get<CarModel>(environment.urlCar + '/' + id);
         return this.http.get<CarModel>(`${environment.urlCar}/${id}`);
     }
+
+    saveCar(car: CarModel): Observable<CarModel> {
+        if (car.id > 0) {
+            return this.http.put<CarModel>(`${environment.urlCar}/${car.id}`, car);
+        } else {
+            return this.http.post<CarModel>(environment.urlCar, car);
+        }
+    }
 }
