@@ -41,4 +41,8 @@ export class BrandService {
     getBandsOrderByNameRepeat(): Observable<Array<BrandModel>> {
         return timer(0, 10000).pipe(mergeMap(() => this.http.get<Array<BrandModel>>(environment.urlBrand).pipe(map(data => data.sort((a, b) => a.name < b.name ? -1 : 1)))));
     }
+
+    getBrandById(id: number): Observable<BrandModel> {
+        return this.http.get<BrandModel>(`${environment.urlBrand}/${id}`);
+    }
 }

@@ -6,13 +6,19 @@
             <th>Modèle</th>
             <th>Prix</th>
             <th>Date</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let car of cars">
-            <td>{{car.model}}</td>
-            <td>{{car.price}}</td>
-            <td>{{car.dateOfCirculation}}</td>
+            <td>{{car.model | uppercase}}</td>
+            <td>{{car.price | currency:'€'}}</td>
+            <td>{{car.dateOfCirculation | date:'short'}}</td>
+            <td>
+                <a mat-button [routerLink]="['/car/detail', car.id, car.model]">
+                    <mat-icon>search</mat-icon>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>
