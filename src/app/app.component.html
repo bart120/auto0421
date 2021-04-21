@@ -16,7 +16,7 @@
 
   <div *ngIf="user else login">
     Bonjour {{user.name}}
-    <button mat-button>
+    <button mat-button (click)="onLogout()">
       <mat-icon>locked_out</mat-icon>Se déconnecter
     </button>
   </div>

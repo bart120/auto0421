@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { UserModel } from 'src/app/models/user.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +13,18 @@ export class LoginComponent implements OnInit {
   @ViewChild('password')
   passwd?: ElementRef;
 
-  constructor() { }
+  user?: UserModel;
+
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.auth.$user.subscribe(x => {
+      this.user = x;
+    });
   }
 
   onLogin(login: string, ev: any): void {
-    console.log(this.passwd?.nativeElement.value);
+    this.auth.login(login, this.passwd?.nativeElement.value);
   }
 
 }
